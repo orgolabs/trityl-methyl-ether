@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synthesis of Trityl Methyl Ether — Triphenylmethanol + Methanol</title>
+  <meta name="description" content="An interactive, fact-checked walkthrough of the microscale synthesis of triphenylmethyl methyl ether from triphenylmethanol and methanol (Williamson &amp; Masters, 7th ed.): real 3D structures, the SN1 trityl-cation mechanism, the procedure, and a live yield calculator." />
+  <link rel="icon" href="https://orgolabs.github.io/shared/brand/orgolabs-icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://orgolabs.github.io/shared/styles.css" />
+</head>
+<body>
+  <noscript><p style="padding:24px">This interactive lab needs JavaScript. Source: <a href="https://github.com/orgolabs/trityl-methyl-ether">github.com/orgolabs/trityl-methyl-ether</a></p></noscript>
+
+  <script>
+    window.LAB = {
+      repo: "trityl-methyl-ether",
+      labName: "Synthesis of Trityl Methyl Ether",
+      eyebrow: "Interactive organic chemistry · SN1 & carbocation stability",
+      title: "The Synthesis of Trityl Methyl Ether",
+      lede: "Triphenylmethyl methyl ether is made in one flask by dissolving <strong>triphenylmethanol</strong> in concentrated sulfuric acid — which ionizes the –OH to a bright, resonance-stabilized <strong>trityl carbocation</strong> — then pouring that solution into cold <strong>methanol</strong>, which traps the cation as the ether. Rotate the real molecules, follow the SN1 mechanism, and scale the microscale experiment below.",
+      reaction: "\\ce{C19H16O ->[H2SO4][CH3OH] C20H18O}",
+      content: "content.md",
+      viewers: [
+        { id: "view-triphenylmethanol", key: "triphenylmethanol", kind: "start", role: "Starting material", name: "Triphenylmethanol",
+          iupac: "triphenylmethanol", note: "A tertiary alcohol whose carbon bears three phenyl rings. Its –OH is what gets ionized away." },
+        { id: "view-methanol", key: "methanol", kind: "start", role: "Nucleophile", name: "Methanol",
+          iupac: "methanol", note: "The nucleophile that traps the trityl cation — and, later, the recrystallization solvent." },
+        { id: "view-trityl_methyl_ether", key: "trityl_methyl_ether", kind: "major", role: "Product", name: "Trityl methyl ether",
+          iupac: "[methoxy(diphenyl)methyl]benzene", note: "<b>Methoxytriphenylmethane.</b> The old –OH is now a methyl ether (–OCH₃)." }
+      ],
+      pathway: [
+        { node: { img: "triphenylmethanol.png", name: "Triphenylmethanol", sub: "$\\ce{C19H16O}$" } },
+        { op: { cond: "\\ce{H2SO4}", sub: "−H₂O" } },
+        { node: { img: "trityl-cation.png", name: "Trityl cation", sub: "trityl cation · resonance-stabilized" } },
+        { op: { cond: "\\ce{CH3OH}", sub: "−H⁺" } },
+        { node: { img: "trityl-methyl-ether.png", name: "Trityl methyl ether", sub: "$\\ce{C20H18O}$", kind: "major" } }
+      ],
+      pathwayCaption: "An SN1: concentrated sulfuric acid ionizes the alcohol's –OH to a resonance-stabilized trityl carbocation, and methanol then traps that cation to give the methyl ether.",
+      calculator: {
+        intro: "Pre-filled with the microscale amount from the manual (50 mg triphenylmethanol, the limiting reagent; methanol is in large excess). Molar masses: triphenylmethanol 260.33, trityl methyl ether 274.36 g/mol. The ether forms 1 : 1 from the alcohol.",
+        inputs: [
+          { id: "in-tpm", label: "Triphenylmethanol mass (g)", value: "0.050", step: "0.005" },
+          { id: "in-isolated", label: "Isolated ether mass (g)", value: "0.04", step: "0.005", optional: true }
+        ],
+        outputs: [
+          { id: "o-tpmmmol", label: "Triphenylmethanol", unit: "mmol" },
+          { id: "o-theory", label: "Theoretical ether", unit: "g", kind: "major" },
+          { id: "o-yield", label: "Percent yield", unit: "%", kind: "yield" }
+        ],
+        compute: function (v) {
+          var S = 260.33, P = 274.36;
+          if (!(v["in-tpm"] > 0)) return {};
+          var n = v["in-tpm"] / S * 1000, theory = n / 1000 * P;
+          var o = {
+            "o-tpmmmol": n.toFixed(3),
+            "o-theory": theory.toFixed(3)
+          };
+          o["o-yield"] = v["in-isolated"] > 0 ? (v["in-isolated"] / theory * 100).toFixed(1) : "";
+          return o;
+        }
+      },
+      references: [
+        { authors: "Williamson, K. L.; Masters, K. M.", title: "Triphenylmethyl Methyl Ether", meta: "Macroscale and Microscale Organic Experiments, 7th ed.; Cengage, 2016; p 449.", note: "The source experiment: the microscale ionization of triphenylmethanol in sulfuric acid and trapping by methanol, with melting-point characterization. The handout is bundled here.", url: "docs/trityl-methyl-ether-lab-manual.pdf", linkText: "Download the lab manual (PDF)", access: "open" },
+        { authors: "PubChem, U.S. National Library of Medicine.", title: "Triphenylmethanol (6457), Triphenylmethyl methyl ether (136388), Methanol (887)", meta: "Public-domain compound records and computed 3D conformers.", note: "Free and public. The 3D coordinates come directly from these records via PUG-REST.", url: "https://pubchem.ncbi.nlm.nih.gov/compound/136388", linkText: "pubchem.ncbi.nlm.nih.gov/compound/136388", access: "open" },
+        { authors: "Rego, N.; Koes, D.", title: "3Dmol.js: molecular visualization with WebGL", meta: "Bioinformatics 2015, 31 (8), 1322–1324.", note: "The open-source (BSD-3) library rendering the interactive structures.", url: "https://doi.org/10.1093/bioinformatics/btu829", linkText: "doi.org/10.1093/bioinformatics/btu829", access: "open" }
+      ]
+    };
+  </script>
+  <script src="js/structures.js"></script>
+  <script src="https://orgolabs.github.io/shared/lab.js"></script>
+</body>
+</html>
