@@ -27,13 +27,13 @@
         { id: "view-methanol", key: "methanol", kind: "start", role: "Nucleophile", name: "Methanol",
           iupac: "methanol", note: "The nucleophile that traps the trityl cation — and, later, the recrystallization solvent." },
         { id: "view-trityl_methyl_ether", key: "trityl_methyl_ether", kind: "major", role: "Product", name: "Trityl methyl ether",
-          iupac: "[methoxy(diphenyl)methyl]benzene", note: "<b>Methoxytriphenylmethane.</b> The old –OH is now a methyl ether (–OCH₃)." }
+          iupac: "[methoxy(diphenyl)methyl]benzene", note: "<b>Methoxytriphenylmethane.</b> The old –OH is now a methyl ether ($\\ce{-OCH3}$)." }
       ],
       pathway: [
         { node: { img: "triphenylmethanol.png", name: "Triphenylmethanol", sub: "$\\ce{C19H16O}$" } },
-        { op: { cond: "\\ce{H2SO4}", sub: "−H₂O" } },
+        { op: { cond: "\\ce{H2SO4}", sub: "$-\\ce{H2O}$" } },
         { node: { img: "trityl-cation.png", name: "Trityl cation", sub: "trityl cation · resonance-stabilized" } },
-        { op: { cond: "\\ce{CH3OH}", sub: "−H⁺" } },
+        { op: { cond: "\\ce{CH3OH}", sub: "$-\\ce{H+}$" } },
         { node: { img: "trityl-methyl-ether.png", name: "Trityl methyl ether", sub: "$\\ce{C20H18O}$", kind: "major" } }
       ],
       pathwayCaption: "An SN1: concentrated sulfuric acid ionizes the alcohol's –OH to a resonance-stabilized trityl carbocation, and methanol then traps that cation to give the methyl ether.",

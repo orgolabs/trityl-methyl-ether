@@ -28,14 +28,14 @@ The ether-forming sequence is a **unimolecular nucleophilic substitution** ($\ce
 <div class="mech-grid">
 <article class="mech-step"><span class="step-num">1</span>
 <h3>Protonate the –OH</h3>
-<p>Concentrated $\ce{H2SO4}$ protonates the hydroxyl oxygen of <strong>triphenylmethanol</strong>, turning a poor leaving group (–OH) into an excellent one (–OH₂⁺, i.e. water).</p>
+<p>Concentrated $\ce{H2SO4}$ protonates the hydroxyl oxygen of <strong>triphenylmethanol</strong>, turning a poor leaving group (–OH) into an excellent one ($\ce{-OH2+}$, i.e. water).</p>
 </article>
 <article class="mech-step major-accent"><span class="step-num">2</span>
 <h3>Lose water → trityl cation</h3>
 <p>Water departs and the central carbon becomes a <strong>trityl carbocation</strong>. Because the charge is delocalized over three phenyl rings, the solution turns an intense <strong>yellow-orange</strong> — you are literally watching the carbocation form.</p>
 </article>
 <article class="mech-step minor-accent"><span class="step-num">3</span>
-<h3>Methanol traps, then loses H⁺</h3>
+<h3>Methanol traps, then loses $\ce{H+}$</h3>
 <p>Poured into cold <strong>methanol</strong>, the cation is attacked by the methanol oxygen. Loss of a proton gives the neutral <strong>methyl ether</strong>, and the color fades as the cation is consumed.</p>
 </article>
 </div>
